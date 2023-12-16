@@ -6,7 +6,7 @@ from pep_parse.items import PepParseItem
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    start_urls = ['https://{}/'.format(domain) for domain in allowed_domains]
 
     def parse(self, response):
         """Собирает информацию об URL-адресах всех PEP"""
